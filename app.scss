@@ -1,2 +1,15 @@
 @use 'sass:math';
 @import '~bootstrap';
+
+.btn-group {
+  width: 100%;
+}
+.btn-group .btn {
+  display: block!important;
+  width: 50%;
+}
+
+table td {
+  width: 20%;
+  text-align: center;
+}

@@ -39,22 +39,13 @@ export default class HomeCount extends React.PureComponent<Props, State> {
     }
 
     render() {
-        return <div>
-            <ul className="list-group">
-                <li className="list-group-item d-flex justify-content-between align-items-start list-group-item-primary">
-                    <div className="ms-2 me-auto">
-                        {Directions[this.props.direction]}
-                    </div>
-                </li>
-                {[Persons.MEN, Persons.WOMEN, Persons.MEN_ACC, Persons.WOMEN_ACC].map((p: Persons) => {
-                    return <li key={p} className="list-group-item d-flex justify-content-between align-items-start">
-                        <div className="ms-2 me-auto">
-                            {Persons[p]}
-                        </div>
-                        <span className="badge bg-primary rounded-pill">{this.counter(p, this.props.direction)}</span>
-                    </li>
-                })}
-            </ul>
-        </div>
+        return <tr>
+            <td>{Directions[this.props.direction]}</td>
+            {[Persons.MEN, Persons.MEN_ACC, Persons.WOMEN, Persons.WOMEN_ACC].map((p: Persons) => {
+                return <td key={p}>
+                    <span>{this.counter(p, this.props.direction)}</span>
+                </td>
+            })}
+        </tr>
     }
 }

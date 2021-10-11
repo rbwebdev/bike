@@ -82,9 +82,11 @@ export default class CounterContext {
 
     decrement(person: Persons, direction: Directions): void {
         let val = this.counter(person, direction);
-        val --;
-        this._counters = this._counters.set(CounterContext.key(person, direction), val);
-        this.save()
-        this.emit()
+        if (val !== 0) {
+            val --;
+            this._counters = this._counters.set(CounterContext.key(person, direction), val);
+            this.save()
+            this.emit()
+        }
     }
 }

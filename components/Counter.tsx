@@ -35,15 +35,16 @@ export default class Counter extends React.PureComponent<Props, State> {
 
     render() {
         return <div>
-            <div className="card">
-                <div className="card-body bg-primary">
-                    <span className="h2 card-title">{Directions[this.state.direction]} {Persons[this.person]} {this.state.counter}</span>
-                </div>
-                <div className="card-body">
-                    <button className="btn btn-danger ms-1 me-1" onClick={() => this.globalContext.decrement(this.person, this.state.direction)}>-</button>
-                    <button className="btn btn-success ms-1 me-1" onClick={() => this.globalContext.increment(this.person, this.state.direction)}>+</button>
+            <div className="row">
+                <div className="col"><h2>{Persons[this.person]} ({this.state.counter})</h2></div>
+                <div className="col">
+                    <div className="btn-group" role="group" aria-label="Basic example">
+                        <button className="btn btn-danger btn-large" onClick={() => this.globalContext.decrement(this.person, this.state.direction)}>-</button>
+                        <button className="btn btn-success btn-large" onClick={() => this.globalContext.increment(this.person, this.state.direction)}>+</button>
+                    </div>
                 </div>
             </div>
+            <hr/>
         </div>
     }
 }
