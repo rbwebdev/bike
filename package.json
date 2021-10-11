@@ -1,0 +1,30 @@
+{
+  "name": "counter_bike",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "watch": "webpack --watch",
+    "build": "webpack --mode=production"
+  },
+  "author": "Romain Brasier",
+  "license": "ISC",
+  "dependencies": {
+    "immutable": "^4.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.27",
+    "@types/react-dom": "^17.0.9",
+    "bootstrap": "^5.1.2",
+    "css-loader": "^6.3.0",
+    "mini-css-extract-plugin": "^2.4.2",
+    "sass": "^1.42.1",
+    "sass-loader": "^12.1.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.4.3",
+    "webpack": "^5.58.1",
+    "webpack-cli": "^4.9.0"
+  }
+}
