@@ -27,7 +27,6 @@ export default class Home extends React.PureComponent<Props, State> {
             currentStep: Stepper.HOME
         }
     }
-//@todo clean local storage button
 //@todo meteo
 //@todo button send by email
 //@todo translate
@@ -48,6 +47,7 @@ export default class Home extends React.PureComponent<Props, State> {
                     <hr/>
                     <div className="d-grid gap-2">
                         <button className="btn btn-block btn-dark" onClick={() => this.setState({...this.state, currentStep: Stepper.STEP1})} >Choix direction</button>
+                        <button className="btn btn-block btn-dark" onClick={() => {localStorage.removeItem('counter'); location.reload();}} >Clean Data</button>
                     </div>
                 </div>
             </div>
