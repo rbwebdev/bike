@@ -25,7 +25,7 @@ export default class CounterContext {
         if (null !== storageData) {
             storageData = JSON.parse(storageData);
             for (const [key, value] of Object.entries(storageData)) {
-                this._counters.set(value[0].toString(), parseInt(value[1]));
+                this._counters = this._counters.set(value[0].toString(), parseInt(value[1]));
                 console.log('set:' + value[0] + ' ' + value[1])
             }
         }
