@@ -70,8 +70,8 @@ export default class Home extends React.PureComponent<Props, State> {
                     <h2 className="text-center">Personnes</h2>
                     <hr/>
                     {[Persons.MEN, Persons.WOMEN, Persons.MEN_ACC, Persons.WOMEN_ACC].map((p: Persons) => {
-                        return <div>
-                            <Counter key={p} globalContext={this.globalContext} person={p}/>
+                        return <div key={'counter'+p} >
+                            <Counter globalContext={this.globalContext} person={p}/>
                         </div>
                     })}
                     <div className="d-grid gap-2">

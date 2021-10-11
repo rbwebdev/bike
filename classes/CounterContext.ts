@@ -19,9 +19,17 @@ export default class CounterContext {
     private _direction: Directions
 
     constructor() {
-        //get local storage @todo
         this._counters = Immutable.Map<string, number>();
         this.subscribes = [];
+        let storageData = localStorage.getItem('counter');
+        if (null !== storageData) {
+            storageData = JSON.parse(storageData);
+            for (const [key, value] of Object.entries(storageData)) {
+                this._counters.set(value[0].toString(), parseInt(value[1]));
+                console.log('set:' + value[0] + ' ' + value[1])
+            }
+        }
+        console.log(this._counters.get('02'))
     }
 
     get counters(): Immutable.Map<string, number> {
@@ -55,7 +63,7 @@ export default class CounterContext {
     }
 
     private save() {
-        //save local storage this._counters @todo
+        localStorage.setItem('counter', JSON.stringify(this.counters.toArray()));
     }
 
     private emit(): void {
@@ -65,11 +73,10 @@ export default class CounterContext {
     }
 
     increment(person: Persons, direction: Directions): void {
-        console.log(person, direction)
         let val = this.counter(person, direction);
         val ++;
         this._counters = this._counters.set(CounterContext.key(person, direction), val);
-        //save() @todo
+        this.save()
         this.emit()
     }
 
@@ -77,7 +84,7 @@ export default class CounterContext {
         let val = this.counter(person, direction);
         val --;
         this._counters = this._counters.set(CounterContext.key(person, direction), val);
-        //save() @todo
+        this.save()
         this.emit()
     }
 }
