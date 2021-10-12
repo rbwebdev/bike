@@ -2,6 +2,7 @@ import * as React from 'react'
 import HomeCount from "./HomeCount";
 import Counter from "./Counter";
 import CounterContext, {Directions, Persons} from "../classes/CounterContext";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 interface Props {
 }
@@ -47,11 +48,6 @@ export default class Home extends React.PureComponent<Props, State> {
                             return <HomeCount key={'home'+d} globalContext={this.globalContext} direction={d}/>
                         })}
                     </table>
-                    <hr/>
-                    <div className="btn-group" role="group" aria-label="Basic example">
-                        <button className="btn btn-block btn-primary" onClick={() => this.setState({...this.state, currentStep: Stepper.STEP1})} >Choix direction</button>
-                        <button className="btn btn-block btn-warning" onClick={() => {localStorage.removeItem('counter'); location.reload();}} >Clean Data</button>
-                    </div>
                 </div>
             </div>
             <div className={"home-page " + (this.state.currentStep === Stepper.STEP1 ? "" : "d-none")}>
@@ -71,9 +67,6 @@ export default class Home extends React.PureComponent<Props, State> {
                         })}
                     </div>
                     <hr/>
-                    <div className="d-grid gap-2">
-                        <button className="btn btn-block btn-primary" onClick={() => this.setState({...this.state, currentStep: Stepper.HOME})} >Accueil</button>
-                    </div>
                 </div>
             </div>
             <div className={"home-page " + (this.state.currentStep === Stepper.STEP2 ? "" : "d-none")}>
@@ -86,8 +79,22 @@ export default class Home extends React.PureComponent<Props, State> {
                             <Counter globalContext={this.globalContext} person={p}/>
                         </div>
                     })}
-                    <div className="d-grid gap-2">
-                        <button className="btn btn-block btn-primary" onClick={() => this.setState({...this.state, currentStep: Stepper.HOME})} >Accueil</button>
+                </div>
+            </div>
+            <div className="nav">
+                <div className="trash sub">
+                    <div className="btn btn-danger" onClick={() => {localStorage.removeItem('counter'); location.reload();}}>
+                        <FontAwesomeIcon icon="trash" size="2x"/>
+                    </div>
+                </div>
+                <div className="home sub">
+                    <div className="btn btn-dark" onClick={() => this.setState({...this.state, currentStep: Stepper.HOME})}>
+                        <FontAwesomeIcon icon="home" size="2x"/>
+                    </div>
+                </div>
+                <div className="step1 sub">
+                    <div className="btn btn-success" onClick={() => this.setState({...this.state, currentStep: Stepper.STEP1})}>
+                        <FontAwesomeIcon icon="arrows-alt" size="2x"/>
                     </div>
                 </div>
             </div>
