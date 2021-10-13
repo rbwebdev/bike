@@ -40,7 +40,7 @@ export default class HomeCount extends React.PureComponent<Props, State> {
 
     render() {
         return <tr>
-            <td>{Directions[this.props.direction]}</td>
+            <td>{this.props.direction}</td>
             {[Persons.MEN, Persons.MEN_ACC, Persons.WOMEN, Persons.WOMEN_ACC].map((p: Persons) => {
                 return <td key={p}>
                     <span>{this.counter(p, this.props.direction)}</span>

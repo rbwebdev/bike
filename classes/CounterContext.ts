@@ -8,10 +8,10 @@ export enum Persons {
 }
 
 export enum Directions {
-    RIGHT,
-    LEFT,
-    TOP,
-    BOTTOM
+    RIGHT = '➡',
+    LEFT = '⬅',
+    TOP = '⬆',
+    BOTTOM = '⬇'
 }
 
 export default class CounterContext {
@@ -26,10 +26,8 @@ export default class CounterContext {
             storageData = JSON.parse(storageData);
             for (const [key, value] of Object.entries(storageData)) {
                 this._counters = this._counters.set(value[0].toString(), parseInt(value[1]));
-                console.log('set:' + value[0] + ' ' + value[1])
             }
         }
-        console.log(this._counters.get('02'))
     }
 
     get counters(): Immutable.Map<string, number> {
