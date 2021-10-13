@@ -74,10 +74,10 @@ export default class Home extends React.PureComponent<Props, State> {
                     <div className="col col-8">
                         <div className="row">
                             <div className="col col-6 text-center border-right">
-                                <button className="btn btn-block btn-dark btn-block" onClick={() => {this.setState({...this.state, currentStep: Stepper.STEP2}); this.globalContext.direction = Directions.LEFT;}}>{Directions.BOTTOM}</button>
+                                <button className="btn btn-block btn-dark btn-block" onClick={() => {this.setState({...this.state, currentStep: Stepper.STEP2}); this.globalContext.direction = Directions.BOTTOM;}}>{Directions.BOTTOM}</button>
                             </div>
                             <div className="col col-6 text-center">
-                                <button className="btn btn-block btn-dark btn-block" onClick={() => {this.setState({...this.state, currentStep: Stepper.STEP2}); this.globalContext.direction = Directions.LEFT;}}>{Directions.TOP}</button>
+                                <button className="btn btn-block btn-dark btn-block" onClick={() => {this.setState({...this.state, currentStep: Stepper.STEP2}); this.globalContext.direction = Directions.TOP;}}>{Directions.TOP}</button>
                             </div>
                         </div>
                     </div>
