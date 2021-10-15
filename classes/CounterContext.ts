@@ -8,10 +8,10 @@ export enum Persons {
 }
 
 export enum Directions {
-    RIGHT = '➡',
-    LEFT = '⬅',
-    TOP = '⬆',
-    BOTTOM = '⬇'
+    RIGHT = 'angle-double-right',
+    LEFT = 'angle-double-left',
+    TOP = 'angle-double-up',
+    BOTTOM = 'angle-double-down'
 }
 
 export default class CounterContext {

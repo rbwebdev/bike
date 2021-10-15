@@ -35,8 +35,6 @@ table td {
   padding: 20px;
   width: 75px;
   height: 75px;
-  font-size: 30px;
-  line-height: 1px;
 }
 .circle {
   height: 100%;
@@ -51,4 +49,38 @@ table td {
 .step-1 .trait{
   border-bottom: 2px solid black;
   width: 75px;
+}
+.btn-left, .btn-bottom {
+  width:100vw;
+}
+h2 .badge {
+  font-size: 26px;
+  margin-right: 20px;
+}
+.step-2 .btn-group, .step-2 .btn {
+  height: 100%;
+}
+
+#dark {
+  background: #222222!important;;
+  color: #d8d8d8!important;
+  .btn {
+    border:1px solid #d8d8d8!important;;
+  }
+  .table, .table-striped > tbody > tr:nth-of-type(odd) > *{
+    color: #d8d8d8!important;
+  }
+  .border-dark {
+    border-color: #d8d8d8!important;
+  }
+  .step-1 .border-right{
+    border-right: 2px solid #d8d8d8;
+  }
+  .step-1 .trait{
+    border-bottom: 2px solid #d8d8d8;
+  }
+  .circle {
+    border-bottom: 2px solid #d8d8d8;
+    border-right: 2px solid #d8d8d8;
+  }
 }

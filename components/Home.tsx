@@ -8,7 +8,8 @@ interface Props {
 }
 
 interface State {
-    currentStep: Stepper
+    currentStep: Stepper,
+    theme: string,
 }
 
 enum Stepper {
@@ -25,8 +26,14 @@ export default class Home extends React.PureComponent<Props, State> {
 
         this.globalContext = new CounterContext();
 
+        let theme = localStorage.getItem('theme');
+        if (null === theme) {
+            theme = 'day';
+        }
+        document.body.id = theme;
         this.state = {
-            currentStep: Stepper.HOME
+            currentStep: Stepper.HOME,
+            theme: theme
         }
     }
 
@@ -62,11 +69,15 @@ export default class Home extends React.PureComponent<Props, State> {
                         </div>
                     </div>
                     <div className="col col-4">
-                        <button className="btn btn-block btn-dark btn-block" onClick={() => {this.setState({...this.state, currentStep: Stepper.STEP2}); this.globalContext.direction = Directions.LEFT;}}>{Directions.LEFT}</button>
+                        <button className="btn btn-block btn-dark btn-block" onClick={() => {this.setState({...this.state, currentStep: Stepper.STEP2}); this.globalContext.direction = Directions.LEFT;}}>
+                            <FontAwesomeIcon icon={Directions.LEFT} size="2x"/>
+                        </button>
                         <br/>
                         <div className="trait">&nbsp;</div>
                         <br/>
-                        <button className="btn btn-block btn-dark btn-block" onClick={() => {this.setState({...this.state, currentStep: Stepper.STEP2}); this.globalContext.direction = Directions.RIGHT;}}>{Directions.RIGHT}</button>
+                        <button className="btn btn-block btn-dark btn-block" onClick={() => {this.setState({...this.state, currentStep: Stepper.STEP2}); this.globalContext.direction = Directions.RIGHT;}}>
+                            <FontAwesomeIcon icon={Directions.RIGHT} size="2x"/>
+                        </button>
                     </div>
                 </div>
                 <br/>
@@ -74,19 +85,25 @@ export default class Home extends React.PureComponent<Props, State> {
                     <div className="col col-8">
                         <div className="row">
                             <div className="col col-6 text-center border-right">
-                                <button className="btn btn-block btn-dark btn-block" onClick={() => {this.setState({...this.state, currentStep: Stepper.STEP2}); this.globalContext.direction = Directions.BOTTOM;}}>{Directions.BOTTOM}</button>
+                                <button className="btn btn-block btn-dark btn-block" onClick={() => {this.setState({...this.state, currentStep: Stepper.STEP2}); this.globalContext.direction = Directions.BOTTOM;}}>
+                                    <FontAwesomeIcon icon={Directions.BOTTOM} size="2x"/>
+                                </button>
                             </div>
                             <div className="col col-6 text-center">
-                                <button className="btn btn-block btn-dark btn-block" onClick={() => {this.setState({...this.state, currentStep: Stepper.STEP2}); this.globalContext.direction = Directions.TOP;}}>{Directions.TOP}</button>
+                                <button className="btn btn-block btn-dark btn-block" onClick={() => {this.setState({...this.state, currentStep: Stepper.STEP2}); this.globalContext.direction = Directions.TOP;}}>
+                                    <FontAwesomeIcon icon={Directions.TOP} size="2x"/>
+                                </button>
                             </div>
                         </div>
                     </div>
                     <div className="col col-4">&nbsp;</div>
                 </div>
             </div>
-            <div className={"home-page " + (this.state.currentStep === Stepper.STEP2 ? "" : "d-none")}>
+            <div className={"step-2 " + (this.state.currentStep === Stepper.STEP2 ? "" : "d-none")}>
                 <div className="container">
-                    <h2 className="text-center">Sens de circulation : {this.globalContext.direction}</h2>
+                    <h2 className="text-center">
+                        Sens de circulation<br/>
+                        <FontAwesomeIcon icon={this.globalContext.direction} size="2x"/></h2>
                     <hr/>
                     {[Persons.MEN, Persons.MEN_ACC, Persons.WOMEN, Persons.WOMEN_ACC].map((p: Persons) => {
                         return <div key={'counter'+p} >
@@ -102,12 +119,17 @@ export default class Home extends React.PureComponent<Props, State> {
                         <div className="btn btn-danger" onClick={() => {localStorage.removeItem('counter'); location.reload();}}>
                             <FontAwesomeIcon icon="trash" size="2x"/>
                         </div>
+                        <br/>
+                        <br/>
+                        <div className="btn btn-dark" onClick={() => {((this.state.theme == 'day') ? localStorage.setItem('theme', 'dark') : localStorage.setItem('theme', 'day')); document.body.id = localStorage.getItem('theme'); this.setState({...this.state, theme: localStorage.getItem('theme')})}}>
+                            <FontAwesomeIcon icon="adjust" size="2x"/>
+                        </div>
                     </div>
                 </div>
             </div>
             <div className="nav">
                 <div className="trash sub">
-                    <div className="btn btn-danger" onClick={() => this.setState({...this.state, currentStep: Stepper.PARAMS})}>
+                    <div className="btn btn-warning" onClick={() => this.setState({...this.state, currentStep: Stepper.PARAMS})}>
                         <FontAwesomeIcon icon="cog" size="2x"/>
                     </div>
                 </div>

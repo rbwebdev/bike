@@ -1,6 +1,7 @@
 import * as React from 'react'
 import CounterContext, {Directions, Persons} from "../classes/CounterContext";
 import Immutable from "immutable";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 interface Props {
     globalContext: CounterContext,
@@ -40,7 +41,7 @@ export default class HomeCount extends React.PureComponent<Props, State> {
 
     render() {
         return <tr>
-            <td>{this.props.direction}</td>
+            <td><FontAwesomeIcon icon={this.props.direction}/></td>
             {[Persons.MEN, Persons.MEN_ACC, Persons.WOMEN, Persons.WOMEN_ACC].map((p: Persons) => {
                 return <td key={p}>
                     <span>{this.counter(p, this.props.direction)}</span>
