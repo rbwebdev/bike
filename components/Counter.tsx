@@ -9,12 +9,12 @@ interface Props {
 
 interface State {
     counter: number
-    direction: Directions
 }
 
-export default class Counter extends React.PureComponent<Props, State> {
+export default class Counter extends React.Component<Props, State> {
     private readonly globalContext: CounterContext
     private readonly person: Persons
+    private readonly direction: Directions
 
     constructor(props: Props) {
         super(props)
@@ -22,17 +22,25 @@ export default class Counter extends React.PureComponent<Props, State> {
         this.globalContext = props.globalContext
         this.person = props.person
 
+        // j'arrive pas a utiliser le useParams
+        let directionPath = window.location.href.split("/").pop()
+        for(let d of [Directions.TOP, Directions.BOTTOM, Directions.LEFT, Directions.RIGHT]) {
+            if (directionPath == d) {
+                this.direction = d
+            }
+        }
+
         this.state = {
-            counter: props.globalContext.counter(this.person, Directions.RIGHT),
-            direction: Directions.RIGHT
+            counter: props.globalContext.counter(this.person, this.direction),
         }
 
         this.globalContext.subscribe((context: CounterContext) => {
             this.setState(
-                {...this.state, counter: context.counter(this.person, context.direction), direction: context.direction}
+                {...this.state, counter: context.counter(this.person, this.direction)}
             )
         })
     }
+
     renderPerson(p) {
         switch (p) {
             case 0:
@@ -74,10 +82,10 @@ export default class Counter extends React.PureComponent<Props, State> {
                 </div>
                 <div className="col col-4">
                     <div className="btn-group" role="group" aria-label="Basic example">
-                        <button className="btn btn-warning btn-large" onClick={() => this.globalContext.decrement(this.person, this.state.direction)}>
+                        <button className="btn btn-warning btn-large" onClick={() => this.globalContext.decrement(this.person, this.direction)}>
                             <FontAwesomeIcon icon="minus" size="2x"/>
                         </button>
-                        <button className="btn btn-success btn-large" onClick={() => this.globalContext.increment(this.person, this.state.direction)}>
+                        <button className="btn btn-success btn-large" onClick={() => this.globalContext.increment(this.person, this.direction)}>
                             <FontAwesomeIcon icon="plus" size="2x"/>
                         </button>
                     </div>

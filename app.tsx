@@ -1,9 +1,10 @@
 import "@fortawesome/fontawesome-free/js/all";
 import * as React from 'react'
-import { render } from 'react-dom'
-import Home from './components/Home'
+import {render} from 'react-dom'
+import App from './components/App'
+import {BrowserRouter} from "react-router-dom";
 
 render(
-    <Home/>,
-    document.getElementById('home')
+    <BrowserRouter><App/></BrowserRouter>,
+    document.getElementById('app')
 )

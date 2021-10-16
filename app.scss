@@ -1,6 +1,31 @@
 @use 'sass:math';
 @import '~bootstrap';
 
+$bgDarker: rgba(0,0,0,.05);
+$underLine: 1px solid #CCC;
+
+#app {
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100vh;
+}
+.page {
+  position: absolute;
+  width: 100%;
+
+  .header {
+    width: 100%;
+    background: $bgDarker;
+    border-bottom: $underLine;
+    padding: 10px;
+  }
+
+  .content {
+    padding: 10px;
+  }
+}
+
 .btn-group {
   width: 100%;
 }
@@ -14,21 +39,38 @@ table td {
   text-align: center;
 }
 .nav {
+  background: $bgDarker;
+  border-top: $underLine;
   text-align: center;
   position: fixed;
   width: 100vw;
   bottom: 0;
   left: 0;
-  height: 100px;
-}
-.nav .btn {
-  border-radius: 50%;
-  padding: 20px;
-  width: 75px;
-  height: 75px;
-}
-.nav .sub {
-  width: 33.33%;
+  display: flex;
+
+  & > div {
+    flex-grow: 1;
+    text-align: center;
+
+    .btn {
+      width: 100%;
+      padding: 10px 0;
+
+      &.active {
+        background: $bgDarker;
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+
+      > span {
+        display: block;
+      }
+    }
+  }
+
+
 }
 .step-1 .btn{
   border-radius: 50%;
@@ -62,9 +104,11 @@ h2 .badge {
 }
 
 #dark {
-  background: #222222!important;;
+  background: #333333 !important;;
   color: #d8d8d8!important;
+
   .btn {
+    color: #d8d8d8!important;
     border:1px solid #d8d8d8!important;;
   }
   .table, .table-striped > tbody > tr:nth-of-type(odd) > *{

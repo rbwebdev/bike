@@ -13,7 +13,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: "[name].min.js",
-        publicPath: '',
+        publicPath: '/',
     },
     resolve: {
         // Add `.ts` and `.tsx` as a resolvable extension.
@@ -33,5 +33,9 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].min.css',
         }),
-    ]
+    ],
+    devServer: {
+        historyApiFallback: true,
+        static: path.resolve(__dirname)
+    }
 };
