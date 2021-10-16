@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import CounterContext, {Persons} from "../classes/CounterContext";
+import CounterContext, {Directions, Persons} from "../classes/CounterContext";
 import Counter from "../components/Counter";
 import {motion} from "framer-motion";
 import {AnimationPageTransition, AnimationPageVariants} from "../components/App";
@@ -18,9 +18,17 @@ export type DirectionParam = {
 
 export default class DirectionCount extends React.PureComponent<Props, State> {
     private readonly globalContext: CounterContext
+    private direction: Directions;
 
     constructor(props: Props) {
         super(props);
+
+        let directionPath = window.location.href.split("/").pop()
+        for(let d of [Directions.TOP, Directions.BOTTOM, Directions.LEFT, Directions.RIGHT]) {
+            if (directionPath == d) {
+                this.direction = d
+            }
+        }
 
         this.globalContext = props.globalContext
     }
@@ -41,7 +49,7 @@ export default class DirectionCount extends React.PureComponent<Props, State> {
                 <div className="container">
                     <h2 className="text-center">
                         Sens de circulation<br/>
-                        <FontAwesomeIcon icon={this.globalContext.direction} size="2x"/></h2>
+                        <FontAwesomeIcon icon={this.direction} size="2x"/></h2>
                     <hr/>
                     {[Persons.MEN, Persons.MEN_ACC, Persons.WOMEN, Persons.WOMEN_ACC].map((p: Persons) => {
                         return <div key={'counter' + p}>

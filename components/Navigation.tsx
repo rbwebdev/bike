@@ -27,7 +27,7 @@ export default class Navigation extends React.PureComponent<Props, State> {
                 </NavLink>
             </div>
             <div>
-                <NavLink to="/directions" exact activeClassName="active" className="btn">
+                <NavLink to="/directions" activeClassName="active" className="btn">
                     <FontAwesomeIcon icon="arrows-alt" size="2x"/> <span>directions</span>
                 </NavLink>
             </div>

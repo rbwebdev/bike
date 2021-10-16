@@ -16,7 +16,6 @@ export enum Directions {
 
 export default class CounterContext {
     private _counters: Immutable.Map<string, number>
-    private _direction: Directions
 
     constructor() {
         this._counters = Immutable.Map<string, number>();
@@ -34,14 +33,6 @@ export default class CounterContext {
         return this._counters;
     }
 
-    get direction(): Directions {
-        return this._direction;
-    }
-
-    set direction(value: Directions) {
-        this._direction = value;
-        this.emit()
-    }
 
     counter(person: Persons, direction: Directions): number {
         if (!this._counters.has(CounterContext.key(person, direction))) {

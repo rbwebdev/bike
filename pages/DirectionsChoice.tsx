@@ -40,19 +40,13 @@ export default class DirectionsChoice extends React.PureComponent<Props, State> 
                         <div className="circle"/>
                     </div>
                     <div className="col col-4">
-                        <Link to={"directions/" + Directions.LEFT} className="btn btn-block btn-dark btn-block"
-                              onClick={() => {
-                                  this.globalContext.direction = Directions.LEFT;
-                              }}>
+                        <Link to={"directions/" + Directions.LEFT} className="btn btn-block btn-dark btn-block">
                             <FontAwesomeIcon icon={Directions.LEFT} size="2x"/>
                         </Link>
                         <br/>
                         <div className="trait"/>
                         <br/>
-                        <Link to={"directions/" + Directions.RIGHT} className="btn btn-block btn-dark btn-block"
-                              onClick={() => {
-                                  this.globalContext.direction = Directions.RIGHT;
-                              }}>
+                        <Link to={"directions/" + Directions.RIGHT} className="btn btn-block btn-dark btn-block">
                             <FontAwesomeIcon icon={Directions.RIGHT} size="2x"/>
                         </Link>
                     </div>
@@ -63,17 +57,12 @@ export default class DirectionsChoice extends React.PureComponent<Props, State> 
                         <div className="row">
                             <div className="col col-6 text-center border-right">
                                 <Link to={"directions/" + Directions.BOTTOM}
-                                      className="btn btn-block btn-dark btn-block" onClick={() => {
-                                    this.globalContext.direction = Directions.BOTTOM;
-                                }}>
+                                      className="btn btn-block btn-dark btn-block">
                                     <FontAwesomeIcon icon={Directions.BOTTOM} size="2x"/>
                                 </Link>
                             </div>
                             <div className="col col-6 text-center">
-                                <Link to={"directions/" + Directions.TOP} className="btn btn-block btn-dark btn-block"
-                                      onClick={() => {
-                                          this.globalContext.direction = Directions.TOP;
-                                      }}>
+                                <Link to={"directions/" + Directions.TOP} className="btn btn-block btn-dark btn-block">
                                     <FontAwesomeIcon icon={Directions.TOP} size="2x"/>
                                 </Link>
                             </div>

@@ -22,7 +22,6 @@ export default class Counter extends React.Component<Props, State> {
         this.globalContext = props.globalContext
         this.person = props.person
 
-        // j'arrive pas a utiliser le useParams
         let directionPath = window.location.href.split("/").pop()
         for(let d of [Directions.TOP, Directions.BOTTOM, Directions.LEFT, Directions.RIGHT]) {
             if (directionPath == d) {
