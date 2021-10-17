@@ -39,12 +39,12 @@ export default class Settings extends React.PureComponent<Props, State> {
             transition={AnimationPageTransition}
         >
             <div className="header">
-                <FontAwesomeIcon icon="cog"/> Settings
+                <FontAwesomeIcon icon="cog"/> Paramètres
             </div>
             <div className="content">
                 <div className="container pt-2">
                     <div onClick={this.props.switchTheme}>
-                        <FontAwesomeIcon icon="adjust"/> Switcher de thème
+                        <FontAwesomeIcon icon="adjust"/> Changer de thème
                     </div>
                     <hr/>
                     <div className="text-danger" onClick={this.deleteCountersStored}>

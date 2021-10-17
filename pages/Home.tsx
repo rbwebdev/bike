@@ -32,10 +32,9 @@ export default class Home extends React.PureComponent<Props, State> {
             transition={AnimationPageTransition}
         >
             <div className="header">
-                <FontAwesomeIcon icon="home" /> Home
+                <FontAwesomeIcon icon="home" /> Résumé
             </div>
             <div className="content">
-                <h2 className="text-center">Résumé</h2>
                 <table className={'table table-striped table-bordered border-dark'}>
                     <tbody>
                     <tr>

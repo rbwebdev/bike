@@ -44,6 +44,7 @@ export default class DirectionsChoice extends React.PureComponent<Props, State> 
                             <FontAwesomeIcon icon={Directions.LEFT} size="2x"/>
                         </Link>
                         <br/>
+                        <br/>
                         <div className="trait"/>
                         <br/>
                         <Link to={"directions/" + Directions.RIGHT} className="btn btn-block btn-dark btn-block">

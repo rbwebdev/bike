@@ -18,17 +18,17 @@ export default class Navigation extends React.PureComponent<Props, State> {
         return <div className="nav">
             <div>
                 <NavLink to="/settings" exact activeClassName="active" className="btn">
-                    <FontAwesomeIcon icon="cog" size="2x"/> <span>settings</span>
+                    <FontAwesomeIcon icon="cog" size="2x"/>
                 </NavLink>
             </div>
             <div>
                 <NavLink to="/" exact activeClassName="active" className="btn">
-                    <FontAwesomeIcon icon="home" size="2x"/> <span>Home</span>
+                    <FontAwesomeIcon icon="home" size="2x"/>
                 </NavLink>
             </div>
             <div>
                 <NavLink to="/directions" activeClassName="active" className="btn">
-                    <FontAwesomeIcon icon="arrows-alt" size="2x"/> <span>directions</span>
+                    <FontAwesomeIcon icon="arrows-alt" size="2x"/>
                 </NavLink>
             </div>
         </div>
