@@ -32,14 +32,14 @@ export default class DirectionsChoice extends React.PureComponent<Props, State> 
             transition={AnimationPageTransition}
         >
             <div className="header">
-                <FontAwesomeIcon icon="directions"/> Sens de circulation du vélo
+                Sens de circulation du vélo
             </div>
             <div className="content">
                 <div className="row btn-left">
                     <div className="col col-8 text-center">
                         <div className="circle"/>
                     </div>
-                    <div className="col col-4">
+                    <div className="col col-4 text-center">
                         <Link to={"directions/" + Directions.LEFT} className="btn btn-block btn-dark btn-block">
                             <FontAwesomeIcon icon={Directions.LEFT} size="2x"/>
                         </Link>

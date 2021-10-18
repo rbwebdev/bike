@@ -25,7 +25,7 @@ export default class Settings extends React.PureComponent<Props, State> {
     deleteCountersStored() {
         if (confirm("Etes vous sûr de vouloir supprimer toutes les données des compteurs ? Cette opération est irréversible !")) {
             localStorage.removeItem('counter');
-            location.reload();
+            location.href = '/';
         }
     }
 
@@ -39,7 +39,7 @@ export default class Settings extends React.PureComponent<Props, State> {
             transition={AnimationPageTransition}
         >
             <div className="header">
-                <FontAwesomeIcon icon="cog"/> Paramètres
+                Paramètres
             </div>
             <div className="content">
                 <div className="container pt-2">
@@ -48,7 +48,7 @@ export default class Settings extends React.PureComponent<Props, State> {
                     </div>
                     <hr/>
                     <div className="text-danger" onClick={this.deleteCountersStored}>
-                        <FontAwesomeIcon icon="trash"/> Supprimer les données des compteurs
+                        <FontAwesomeIcon icon="trash"/> Supprimer les données
                     </div>
                     <br/>
                     <br/>

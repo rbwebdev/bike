@@ -1,14 +1,18 @@
 @use 'sass:math';
 @import '~bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Cuprum&display=swap');
 
 $bgDarker: rgba(0,0,0,.05);
 $underLine: 1px solid #CCC;
+$lightColor: #d8d8d8;
 
 #app {
   position: relative;
   overflow-x: hidden;
   width: 100%;
   height: 100vh;
+  font-family: 'Cuprum', sans-serif;
+  font-size: 18px;
 }
 .page {
   position: absolute;
@@ -19,6 +23,9 @@ $underLine: 1px solid #CCC;
     background: $bgDarker;
     border-bottom: $underLine;
     padding: 10px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
   }
 
   .content {
@@ -105,25 +112,35 @@ h2 .badge {
 
 #dark {
   background: #333333 !important;;
-  color: #d8d8d8!important;
+  color: $lightColor!important;
 
   .btn {
-    color: #d8d8d8!important;
+    color: $lightColor!important;
   }
   .table, .table-striped > tbody > tr:nth-of-type(odd) > *{
-    color: #d8d8d8!important;
+    color: $lightColor!important;
   }
   .border-dark {
-    border-color: #d8d8d8!important;
+    border-color: $lightColor!important;
   }
-  .step-1 .border-right{
-    border-right: 2px solid #d8d8d8;
+  .step-1 {
+    .btn {
+      border: 1px solid $lightColor;
+    }
+    .border-right{
+      border-right: 2px solid $lightColor;
+    }
+    .trait{
+      border-bottom: 2px solid $lightColor;
+    }
+    .circle {
+      border-bottom: 2px solid $lightColor;
+      border-right: 2px solid $lightColor;
+    }
   }
-  .step-1 .trait{
-    border-bottom: 2px solid #d8d8d8;
-  }
-  .circle {
-    border-bottom: 2px solid #d8d8d8;
-    border-right: 2px solid #d8d8d8;
+  .step-2 {
+    .btn.btn-warning {
+      color: #000 !important;
+    }
   }
 }

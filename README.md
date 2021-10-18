@@ -16,6 +16,4 @@ App ayant pour but de compter les cyclistes pour une association.
 
 ### Todo
 - [ ] Météo
-- [ ] Traduction des KEYs
 - [ ] Envoie par email
-- [ ] UI / UX

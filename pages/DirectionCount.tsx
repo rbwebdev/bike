@@ -43,7 +43,7 @@ export default class DirectionCount extends React.PureComponent<Props, State> {
             transition={AnimationPageTransition}
         >
             <div className="header">
-                <FontAwesomeIcon icon="id-badge"/> Compteurs
+                Compteurs
             </div>
             <div className="content">
                 <div className="container">
